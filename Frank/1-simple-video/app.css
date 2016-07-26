@@ -1,0 +1,25 @@
+#videocontainer {
+  margin: auto;
+/*  width: 640;
+  height: 480;*/
+  border: 10px #333 solid;
+}
+
+#videoplayer {
+/*  width: 640;
+  height: 480;*/
+  background-color: #666;
+}
+
+/* Use the vendor prefixes to get the video filters right */
+.grayscale {
+  -webkit-filter: grayscale(1);
+}
+
+.sepia {
+  -webkit-filter: sepia(1);
+}
+
+.blur {
+  -webkit-filter: blur(3px);
+}
