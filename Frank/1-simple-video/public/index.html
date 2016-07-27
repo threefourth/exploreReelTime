@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple WebRTC Video Chat</title>
+  <link rel="stylesheet" type="text/css" href="/app.css">
+
+  <!-- Dependencies -->
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+  <script src="/lib/common/common.min.js"></script>
+  <script src="/bower_components/webrtc-adapter/adapter.js"></script>
+</head>
+<body>
+
+  <div id="videocontainer">
+    <video id="uservideoplayer" autoplay="true"></video>
+    <br />
+    <video id="peervideoplayer" autoplay="true"></video>
+  </div>
+
+  <div>
+    Filters
+    <button id="noFilterButton">No Filter</button>
+    <button id="sepiaButton">Sepia</button>
+    <button id="grayScaleButton">Grayscale</button>
+    <button id="blurButton">Blur</button>
+  </div>
+
+  <!-- Custom Scripts -->
+  <script src="/app.js"></script>
+</body>
+</html>
