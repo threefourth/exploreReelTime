@@ -38,12 +38,12 @@ class App extends React.Component {
   }
 
   setFile(e) {
-    console.log('this is e.target.files[0]:', e.target.files[0]);
+    this.props.socket.emit('add media', e.target.files[0].name);
 
     this.setState({
       file: e.target.files[0],
       showLanding: false,
-      showBody: true,
+      showBody: true
     });
   }
 
@@ -91,17 +91,13 @@ class App extends React.Component {
     });
   }
 
-  render() { 
-    if (this.state.file) {
-      console.log('Inside app.jsx, this.state.file.name:', this.state.file.name);
-    } 
-
+  render() {
     return (
       <div>
         {this.state.showLanding ? <Landing setFile={this.setFile} /> : null}
         {this.state.showLink ? <Link myId={this.state.myId} /> : null}
         {this.state.showBody ? <div className="wrapper">
-          <Library filename={this.state.file.name}/>
+          <Library socket={this.props.socket} setFile={this.setFile}/>
           <Video socket={this.props.socket} />
           <ChatSpace socket={this.props.socket} isSource={this.state.isSource} peerId={this.state.peerId} />
         </div> : null}

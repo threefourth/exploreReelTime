@@ -2,31 +2,46 @@ import React from 'react';
 
 class Library extends React.Component {
   constructor(props) {
+    console.log('Inside constructor.');
+
     super(props);
-    
+
     this.state = {
-      currentFilename: this.props.filename,
       filenames: []
-    }
+    };    
+
+    this.updateLibraryList();
   }
 
-  // componentDidMount() {
-  //   this.setState({
-  //     currentFilename: this.props.filename
-  //   });
-  // }
+  updateLibraryList() {
+    console.log('Inside updateLibraryList.');
 
-  handleAddMedia(media) {
+    this.props.socket.emit('request files');
+
     var that = this;
+    this.props.socket.on('send files', (files) => {
+      console.log('Received filenames from server', files);
 
-    this.setState({
-      currentFilename: media.name,
-      filenames: that.state.filenames.push(media.name)
+      that.setState({
+        filenames: files
+      });
     });
   }
 
+  setFileAndUpdateLibrary(e) {
+    console.log('Inside setFileAndUpdateLibrary');
+    console.log('this inside setFileAndUpdateLibrary', this);
+
+    this.props.setFile(e);
+    this.updateLibraryList();
+  }
+
+  // componentWillUpdate() {
+  //   console.log('Inside componentWillUpdate.');
+  // }
+
   render() {
-    console.log('inside Library.jsx, this is this.state.currentFilename:', this.state.currentFilename);
+    console.log('Rendering Library.');
 
     return (
       <div className="library-list">
@@ -42,11 +57,18 @@ class Library extends React.Component {
           <tbody>
             <tr>
               <td>
-                <h3>{this.state.currentFilename}</h3>
+                {this.state.filenames.map(file => <tr>{file}</tr>)}
               </td>
+            </tr>
+            <tr>
+              <div className="landing-drop-text landing-circle">
+                Drop Your Video File Here
+                <input type="file" id="files" className="landing-circle drop-box" name="file" onChange={this.setFileAndUpdateLibrary.bind(this)} />
+              </div>
             </tr>
           </tbody>
         </table>
+        
       </div>
     );
   }
