@@ -106,21 +106,32 @@ form {
   display: none;
 }
 
+.library {
+  margin-left: 50px;
+}
+
 .library-list {
   width: 20%;
 }
 
 .library-header {
   color: #FFF;
+  padding-bottom: 10px;
 }
 
-.file-library-list {
+.library-sub-header {
+  font-size: 18px;
+  padding: 40px 0 10px 0;
+}
+
+.library-list-file {
   color: #FFF;
+  size: 16px;
   cursor: pointer;
   transition: color 0.5s;
 }
 
-.file-library-list:hover {
+.library-list-file:hover {
   color: #50C8FF;
   transition: color 0.5s;
 }
@@ -157,7 +168,6 @@ form {
 
 .library-drop-box {
   opacity: 0;
-  position: absolute;
   margin-top: -20vh;
 }
 

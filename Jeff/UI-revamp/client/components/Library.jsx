@@ -5,7 +5,7 @@ class Library extends React.Component {
     super(props);
 
     this.state = {
-      filenames: []
+      filenames: null
     };    
 
     this.updateLibraryList();
@@ -32,7 +32,7 @@ class Library extends React.Component {
   render() {
     return (
       <div className="library-list">
-        <table className="table library">
+        <table className="library">
           <thead> 
             <tr>
               <th>
@@ -44,9 +44,25 @@ class Library extends React.Component {
           <tbody>
             <tr>
               <td>
-                {this.state.filenames.map(file => <tr className="file-library-list">{file}</tr>)}
+                <div className="library-sub-header">Videos</div>  
               </td>
             </tr>
+              {this.state.filenames !== null ? this.state.filenames.videos.map(file => <tr className="library-list-file"><td>{file}</td></tr>) : null}
+      
+            <tr>
+              <td>
+                <div className="library-sub-header">Audio</div>  
+              </td>
+            </tr>
+              {this.state.filenames !== null ? this.state.filenames.audio.map(file => <tr className="library-list-file"><td>{file}</td></tr>) : null}
+
+            <tr>
+              <td>
+                <div className="library-sub-header">Images</div>  
+              </td>
+            </tr>
+              {this.state.filenames !== null ? this.state.filenames.images.map(file => <tr className="library-list-file"><td>{file}</td></tr>) : null}
+
           </tbody>
         </table>
         

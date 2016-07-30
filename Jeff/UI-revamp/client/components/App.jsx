@@ -39,7 +39,16 @@ class App extends React.Component {
   }
 
   setFile(e) {
-    this.props.socket.emit('add media', e.target.files[0].name);
+    // this.props.socket.emit('add media', e.target.files[0].name);
+    var filename = e.target.files[0].name; 
+    var filetype = e.target.files[0].type; // video/mp4 => video
+
+    filetype = filetype.slice(0, filetype.indexOf('/'))
+
+    console.log('Sending this file to the server:', e.target.files[0]);
+    console.log(`Name: ${filename}\n Type: ${filetype}`);
+
+    this.props.socket.emit('add media', filename, filetype);
 
     this.setState({
       file: e.target.files[0],
