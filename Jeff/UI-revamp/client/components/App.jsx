@@ -3,7 +3,8 @@ import React from "react";
 import Landing from './Landing';
 import Link from './Link';
 import Library from "./Library.jsx";
-import Video from "./Video.jsx";
+import Main from "./Main.jsx";
+// import Video from "./Video.jsx";
 import ChatSpace from "./ChatSpace.jsx";
 
 import { getMyId, establishPeerConnection } from '../lib/webrtc';
@@ -91,14 +92,28 @@ class App extends React.Component {
     });
   }
 
+  // render() {
+  //   return (
+  //     <div>
+  //       {this.state.showLanding ? <Landing setFile={this.setFile} /> : null}
+  //       {this.state.showLink ? <Link myId={this.state.myId} /> : null}
+  //       {this.state.showBody ? <div className="wrapper">
+  //         <Library socket={this.props.socket} setFile={this.setFile}/>
+  //         <Video socket={this.props.socket} />
+  //         <ChatSpace socket={this.props.socket} isSource={this.state.isSource} peerId={this.state.peerId} />
+  //       </div> : null}
+  //     </div>
+  //   );
+  // }
+
   render() {
     return (
       <div>
         {this.state.showLanding ? <Landing setFile={this.setFile} /> : null}
         {this.state.showLink ? <Link myId={this.state.myId} /> : null}
         {this.state.showBody ? <div className="wrapper">
-          <Library socket={this.props.socket} setFile={this.setFile}/>
-          <Video socket={this.props.socket} />
+          <Library socket={this.props.socket} setFile={this.setFile} />
+          <Main socket={this.props.socket} isSource={this.state.isSource} peerId={this.state.peerId} />
           <ChatSpace socket={this.props.socket} isSource={this.state.isSource} peerId={this.state.peerId} />
         </div> : null}
       </div>

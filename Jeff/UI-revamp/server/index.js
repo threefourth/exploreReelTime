@@ -14,10 +14,12 @@ const EXPRESS_PORT = 3000;
 // Routes
 app.use(express.static(`${__dirname}/../client`));
 
+/*
+  images/jpeg
+  video/mp4
+*/
 
-
-// var filenames = ['My Neighbor Totoro', 'Spirited Away'];
-var filenames = ['My Neighbor Totoro'];
+var filenames = ['My Neighbor Totoro', 'Spirited Away', 'Ponyo', 'Howl\'s Moving Castle'];
 
 
 
@@ -36,12 +38,9 @@ io.on('connection', (socket) => {
 
 
 
-  // Library list sync
+  // Add filename to array when new media is added
   socket.on('add media', (media) => {
-    console.log('Received media on server side! Adding to filenames list.', media);
-
     filenames.push(media);
-    console.log('This is thie filenames array', filenames);
   });
 
   socket.on('request files', () => {
