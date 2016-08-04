@@ -7,11 +7,13 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bower": "^1.7.9",
     "common": "^0.2.5",
     "cors": "^2.7.1",
     "express": "^4.14.0",
