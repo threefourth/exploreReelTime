@@ -1,0 +1,5 @@
+# Apple Trash Files
+.DS_Store
+
+# Dependencies
+node_modules

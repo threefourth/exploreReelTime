@@ -1,0 +1,22 @@
+{
+  "name": "public",
+  "authors": [
+    "Frank Lee <flee531@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "webrtc-adapter": "gh-pages",
+    "peerjs": "^0.3.14",
+    "bluebird": "^3.4.1"
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple WebRTC Video Chat</title>
+  <link rel="stylesheet" type="text/css" href="/styles/app.css">
+
+  <!-- Dependencies -->
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <script src="/bower_components/peerjs/peer.js"></script>
+  <script src="/lib/common/common.min.js"></script>
+  <script src="/bower_components/webrtc-adapter/adapter.js"></script>
+</head>
+<body>
+
+  <div id="main">
+
+    <div id="videocontainer">
+      <video id="uservideoplayer" class="videoplayer inactive" autoplay muted></video>
+      <video id="peeronevideo" class="videoplayer inactive" autoplay></video>
+      <video id="peertwovideo" class="videoplayer inactive" autoplay></video>
+      <video id="peerthreevideo" class="videoplayer inactive" autoplay></video>
+    </div>
+
+    <div id="peercontrols">
+      <button id="startButton">Start</button>
+      <button id="hangupButton">Hang Up</button>
+    </div>
+
+    <div id="mediaqueuecontainer">
+      <ul id="media-queue"></ul>
+    </div>
+
+  </div>
+
+  <!-- Custom Scripts -->
+  <script src="/scripts/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "1-simple-video",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": "6.2.2"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "postinstall": "./node_modules/bower/bin/bower install"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "common": "^0.2.5",
+    "cors": "^2.7.1",
+    "express": "^4.14.0",
+    "nodemon": "^1.10.0",
+    "peer": "^0.2.8",
+    "socket.io": "^1.4.8",
+    "webrtc-adapter": "^1.4.0",
+    "ws": "^1.1.1"
+  }
+}

@@ -1,0 +1,6 @@
+# Apple Trash Files
+.DS_Store
+
+# Modules and Dependencies
+node_modules
+bower_components

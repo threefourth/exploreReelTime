@@ -1,0 +1,23 @@
+#videocontainer {
+  margin: auto;
+  width: 600px;
+  height: 600px;
+  border: 5px #333 solid;
+}
+
+.videoplayer {
+  margin: auto;
+  max-width: 100%;
+  width: 280px;
+  background-color: #666;
+}
+
+#peercontrols {
+  margin: auto;
+  text-align: center;
+}
+
+#userinfo {
+  margin: auto;
+  text-align: center;
+}
